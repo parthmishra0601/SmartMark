@@ -1,26 +1,5 @@
-"use client"
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { supabase } from "./lib/supabase"
+import Login from "./login/page"
 
 export default function Page() {
-  const router = useRouter()
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-
-      if (session) {
-        router.push("/dashboard")
-      }
-    }
-
-    checkUser()
-  }, [router])
-
-  return (
-    <div>
-      <Login />
-    </div>
-  )
+  return <Login />
 }
